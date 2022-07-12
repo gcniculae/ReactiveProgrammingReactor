@@ -22,9 +22,7 @@ public class FluxGenerate {
                 .subscribe(Util.getSubscriber());
         System.out.println();
 
-        Flux.generate(synchronousSink -> {
-                    synchronousSink.next(Util.faker().country().name());
-                })
+        Flux.generate(synchronousSink -> synchronousSink.next(Util.faker().country().name()))
                 .take(2)
                 .subscribe(Util.getSubscriber());
         System.out.println();
